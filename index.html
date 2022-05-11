@@ -1,41 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>This is the title of the webpage!</title>
- 
-	<script type = "text/javascript">
-		
-         function showLocation(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            alert("Latitude : " + latitude + " Longitude: " + longitude);
-         }
+    <title>Minecraft Overviewer</title>
 
-         function errorHandler(err) {
-            if(err.code == 1) {
-               alert("Error: Access is denied!");
-            } else if( err.code == 2) {
-               alert("Error: Position is unavailable!");
-            }
-         }
-			
-         function getLocation() {
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Minecraft-Overviewer 0.17.47 (7171af5)" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-            if(navigator.geolocation) {
-               
-               // timeout at 60000 milliseconds (60 seconds)
-               var options = {timeout:60000};
-               navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
-            } else {
-               alert("Sorry, browser does not support geolocation!");
-            }
-         }
-  </head>	
-      </script>
-	
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.Test </p>
-	
+    <script type="text/javascript" src="overviewerConfig.js"></script>
+    <script type="text/javascript" src="overviewer.js"></script>
+    <script type="text/javascript" src="baseMarkers.js"></script>
 
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js"></script>
+    <link rel="stylesheet" href="overviewer.css" type="text/css" />
+  </head>
+
+  <!-- Generated at: Mon, 09 May 2022 13:05:28 EDT -->
+  <body onload="overviewer.util.initialize()">
+    <noscript style="color: white; background-color: black">
+      If you can see this message, there is likely a problem loading the
+      Overviewer JavaScript components. Check the JavaScript console for error
+      messages.
+    </noscript>
+    <div id="mcmap"></div>
   </body>
 </html>
